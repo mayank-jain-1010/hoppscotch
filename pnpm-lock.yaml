@@ -266,6 +266,9 @@ importers:
       passport-microsoft:
         specifier: 2.1.0
         version: 2.1.0
+      passport-openidconnect:
+        specifier: 0.1.2
+        version: 0.1.2
       posthog-node:
         specifier: 4.2.0
         version: 4.2.0
@@ -1180,7 +1183,7 @@ importers:
     dependencies:
       '@hoppscotch/plugin-relay':
         specifier: github:CuriousCorrelation/tauri-plugin-relay
-        version: '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/86e1ccf327e60442c6ae9c2911d9359bf9e32c1b'
+        version: '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/fee58601fb4b0c129b5a9d87aaa0f9f87c26cd09'
       '@tauri-apps/api':
         specifier: 2.1.1
         version: 2.1.1
@@ -1809,8 +1812,8 @@ packages:
     resolution: {tarball: https://codeload.github.com/CuriousCorrelation/tauri-plugin-appload/tar.gz/1c2e8b19db7f1b6af6d00abb907f15cdc2017298}
     version: 0.1.0
 
-  '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/86e1ccf327e60442c6ae9c2911d9359bf9e32c1b':
-    resolution: {tarball: https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/86e1ccf327e60442c6ae9c2911d9359bf9e32c1b}
+  '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/fee58601fb4b0c129b5a9d87aaa0f9f87c26cd09':
+    resolution: {tarball: https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/fee58601fb4b0c129b5a9d87aaa0f9f87c26cd09}
     version: 0.1.0
 
   '@alloc/quick-lru@5.2.0':
@@ -10239,6 +10242,10 @@ packages:
     resolution: {integrity: sha512-cjsQbOrXIDE4P8nNb3FQRCCmJJ/utnFKEz2NX209f7KOHPoX18gF7gBzBbLLsj2/je4KrgiwLLGjf0lm9rtTBA==}
     engines: {node: '>= 0.4.0'}
 
+  passport-openidconnect@0.1.2:
+    resolution: {integrity: sha512-JX3rTyW+KFZ/E9OF/IpXJPbyLO9vGzcmXB5FgSP2jfL3LGKJPdV7zUE8rWeKeeI/iueQggOeFa3onrCmhxXZTg==}
+    engines: {node: '>= 0.6.0'}
+
   passport-strategy@1.0.0:
     resolution: {integrity: sha512-CB97UUvDKJde2V0KDWWB3lyf6PC3FaZP7YxZ2G8OAtn9p4HI9j9JLP9qjOGZFvyl8uwNT8qM+hGnz/n16NI7oA==}
     engines: {node: '>= 0.4.0'}
@@ -13213,7 +13220,7 @@ snapshots:
     dependencies:
       '@tauri-apps/api': 2.1.1
 
-  '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/86e1ccf327e60442c6ae9c2911d9359bf9e32c1b':
+  '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/fee58601fb4b0c129b5a9d87aaa0f9f87c26cd09':
     dependencies:
       '@tauri-apps/api': 2.1.1
 
@@ -24462,6 +24469,11 @@ snapshots:
       passport-strategy: 1.0.0
       uid2: 0.0.4
       utils-merge: 1.0.1
+
+  passport-openidconnect@0.1.2:
+    dependencies:
+      oauth: 0.10.0
+      passport-strategy: 1.0.0
 
   passport-strategy@1.0.0: {}
 

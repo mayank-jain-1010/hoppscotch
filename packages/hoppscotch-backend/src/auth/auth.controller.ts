@@ -29,6 +29,7 @@ import { AUTH_PROVIDER_NOT_SPECIFIED } from 'src/errors';
 import { ConfigService } from '@nestjs/config';
 import { throwHTTPErr } from 'src/utils';
 import { UserLastLoginInterceptor } from 'src/interceptors/user-last-login.interceptor';
+import { OktaSSOGuard } from './guards/okta-sso.guard';
 
 @UseGuards(ThrottlerBehindProxyGuard)
 @Controller({ path: 'auth', version: '1' })
@@ -166,6 +167,31 @@ export class AuthController {
   @UseGuards(MicrosoftSSOGuard)
   @UseInterceptors(UserLastLoginInterceptor)
   async microsoftAuthRedirect(@Request() req, @Res() res) {
+    const authTokens = await this.authService.generateAuthTokens(req.user.uid);
+    if (E.isLeft(authTokens)) throwHTTPErr(authTokens.left);
+    authCookieHandler(
+      res,
+      authTokens.right,
+      true,
+      req.authInfo.state.redirect_uri,
+    );
+  }
+
+  /**
+   ** Route to initiate SSO auth via Okta
+   */
+  @Get('okta')
+  @UseGuards(OktaSSOGuard)
+  async oktaAuth(@Request() req) {}
+
+  /**
+   ** Callback URL for Okta SSO
+   */
+  @Get('okta/callback')
+  @SkipThrottle()
+  @UseGuards(OktaSSOGuard)
+  @UseInterceptors(UserLastLoginInterceptor)
+  async oktaAuthRedirect(@Request() req, @Res() res) {
     const authTokens = await this.authService.generateAuthTokens(req.user.uid);
     if (E.isLeft(authTokens)) throwHTTPErr(authTokens.left);
     authCookieHandler(

@@ -17,6 +17,7 @@ import {
   isInfraConfigTablePopulated,
 } from 'src/infra-config/helper';
 import { InfraConfigModule } from 'src/infra-config/infra-config.module';
+import { OktaStrategy } from './strategies/okta.strategy';
 
 @Module({
   imports: [
@@ -32,7 +33,7 @@ import { InfraConfigModule } from 'src/infra-config/infra-config.module';
     }),
     InfraConfigModule,
   ],
-  providers: [AuthService, JwtStrategy, RTJwtStrategy],
+  providers: [AuthService, JwtStrategy, RTJwtStrategy, OktaStrategy],
   controllers: [AuthController],
 })
 export class AuthModule {
@@ -54,6 +55,9 @@ export class AuthModule {
         : []),
       ...(authProviderCheck(AuthProvider.MICROSOFT, allowedAuthProviders)
         ? [MicrosoftStrategy]
+        : []),
+      ...(authProviderCheck(AuthProvider.OKTA, allowedAuthProviders)
+        ? [OktaStrategy]
         : []),
     ];
 
