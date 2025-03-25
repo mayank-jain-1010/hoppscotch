@@ -35,6 +35,12 @@ const AuthProviderConfigurations = {
     InfraConfigEnum.GITHUB_CALLBACK_URL,
     InfraConfigEnum.GITHUB_SCOPE,
   ],
+  [AuthProvider.OKTA]: [
+    InfraConfigEnum.OKTA_CLIENT_ID,
+    InfraConfigEnum.OKTA_CLIENT_SECRET,
+    InfraConfigEnum.OKTA_CALLBACK_URL,
+    InfraConfigEnum.OKTA_SCOPE,
+  ],
   [AuthProvider.MICROSOFT]: [
     InfraConfigEnum.MICROSOFT_CLIENT_ID,
     InfraConfigEnum.MICROSOFT_CLIENT_SECRET,
@@ -97,6 +103,7 @@ export async function getDefaultInfraConfigs(): Promise<DefaultInfraConfig[]> {
 
   // Prepare rows for 'infra_config' table with default values (from .env) for each 'name'
   const configuredSSOProviders = getConfiguredSSOProvidersFromEnvFile();
+  
   const generatedAnalyticsUserId = generateAnalyticsUserId();
 
   const infraConfigDefaultObjs: DefaultInfraConfig[] = [
