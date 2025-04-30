@@ -193,12 +193,17 @@ export class AuthController {
   @UseInterceptors(UserLastLoginInterceptor)
   async oktaAuthRedirect(@Request() req, @Res() res) {
     const authTokens = await this.authService.generateAuthTokens(req.user.uid);
+
     if (E.isLeft(authTokens)) throwHTTPErr(authTokens.left);
+    
+    // Get redirect URI from state or use default
+    const redirectUri = req.authInfo?.state?.redirect_uri || this.configService.get('REDIRECT_URL');
+    
     authCookieHandler(
       res,
       authTokens.right,
       true,
-      req.authInfo.state.redirect_uri,
+      redirectUri,
     );
   }
 

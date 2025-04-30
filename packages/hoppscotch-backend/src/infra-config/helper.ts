@@ -275,6 +275,30 @@ export async function getDefaultInfraConfigs(): Promise<DefaultInfraConfig[]> {
       lastSyncedEnvFileValue: null,
       isEncrypted: false,
     },
+    {
+      name: InfraConfigEnum.OKTA_CLIENT_ID,
+      value: encrypt(process.env.OKTA_CLIENT_ID),
+      lastSyncedEnvFileValue: encrypt(process.env.OKTA_CLIENT_ID),
+      isEncrypted: true,
+    },
+    {
+      name: InfraConfigEnum.OKTA_CLIENT_SECRET,
+      value: encrypt(process.env.OKTA_CLIENT_SECRET),
+      lastSyncedEnvFileValue: encrypt(process.env.OKTA_CLIENT_SECRET),
+      isEncrypted: true,
+    },
+    {
+      name: InfraConfigEnum.OKTA_CALLBACK_URL,
+      value: process.env.OKTA_CALLBACK_URL,
+      lastSyncedEnvFileValue: process.env.OKTA_CALLBACK_URL,
+      isEncrypted: false,
+    },
+    {
+      name: InfraConfigEnum.OKTA_SCOPE,
+      value: process.env.OKTA_SCOPE,
+      lastSyncedEnvFileValue: process.env.OKTA_SCOPE,
+      isEncrypted: false,
+    },
   ];
 
   return infraConfigDefaultObjs;

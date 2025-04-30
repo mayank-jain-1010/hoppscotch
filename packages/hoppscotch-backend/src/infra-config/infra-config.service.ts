@@ -297,6 +297,13 @@ export class InfraConfigService implements OnModuleInit {
         } else {
           return configMap.MAILER_SMTP_URL && configMap.MAILER_ADDRESS_FROM;
         }
+      case AuthProvider.OKTA:
+        return (
+          configMap.OKTA_CLIENT_ID &&
+          configMap.OKTA_CLIENT_SECRET &&
+          configMap.OKTA_CALLBACK_URL &&
+          configMap.OKTA_SCOPE
+        );
       default:
         return false;
     }

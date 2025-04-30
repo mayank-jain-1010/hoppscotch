@@ -194,9 +194,15 @@ importers:
       '@prisma/client':
         specifier: 5.20.0
         version: 5.20.0(prisma@5.20.0)
+      '@types/passport-oauth2':
+        specifier: 1.4.17
+        version: 1.4.17
       argon2:
         specifier: 0.41.1
         version: 0.41.1
+      axios:
+        specifier: 1.9.0
+        version: 1.9.0
       bcrypt:
         specifier: 5.1.1
         version: 5.1.1
@@ -266,6 +272,9 @@ importers:
       passport-microsoft:
         specifier: 2.1.0
         version: 2.1.0
+      passport-oauth2:
+        specifier: 1.8.0
+        version: 1.8.0
       passport-openidconnect:
         specifier: 0.1.2
         version: 0.1.2
@@ -522,7 +531,7 @@ importers:
         version: link:../hoppscotch-kernel
       '@hoppscotch/plugin-appload':
         specifier: github:CuriousCorrelation/tauri-plugin-appload
-        version: '@CuriousCorrelation/plugin-appload@https://codeload.github.com/CuriousCorrelation/tauri-plugin-appload/tar.gz/1c2e8b19db7f1b6af6d00abb907f15cdc2017298'
+        version: '@CuriousCorrelation/plugin-appload@https://codeload.github.com/CuriousCorrelation/tauri-plugin-appload/tar.gz/60adb82d0cc886004307057194cf680373e14e02'
       '@hoppscotch/ui':
         specifier: 0.2.2
         version: 0.2.2(eslint@8.57.0)(terser@5.34.1)(typescript@5.3.3)(vite@5.4.9(@types/node@22.9.3)(sass@1.79.5)(terser@5.34.1))(vue@3.5.12(typescript@5.3.3))
@@ -980,7 +989,7 @@ importers:
         version: link:../hoppscotch-kernel
       '@hoppscotch/plugin-appload':
         specifier: github:CuriousCorrelation/tauri-plugin-appload
-        version: '@CuriousCorrelation/plugin-appload@https://codeload.github.com/CuriousCorrelation/tauri-plugin-appload/tar.gz/1c2e8b19db7f1b6af6d00abb907f15cdc2017298'
+        version: '@CuriousCorrelation/plugin-appload@https://codeload.github.com/CuriousCorrelation/tauri-plugin-appload/tar.gz/60adb82d0cc886004307057194cf680373e14e02'
       '@hoppscotch/ui':
         specifier: 0.2.1
         version: 0.2.1(eslint@9.12.0(jiti@2.3.3))(terser@5.34.1)(typescript@5.7.2)(vite@5.4.11(@types/node@22.9.3)(sass@1.80.3)(terser@5.34.1))(vue@3.5.12(typescript@5.7.2))
@@ -1183,7 +1192,7 @@ importers:
     dependencies:
       '@hoppscotch/plugin-relay':
         specifier: github:CuriousCorrelation/tauri-plugin-relay
-        version: '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/fee58601fb4b0c129b5a9d87aaa0f9f87c26cd09'
+        version: '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/68d6b2532c900b4be24a038c49eec4794e990a3d'
       '@tauri-apps/api':
         specifier: 2.1.1
         version: 2.1.1
@@ -1808,12 +1817,12 @@ packages:
       graphql:
         optional: true
 
-  '@CuriousCorrelation/plugin-appload@https://codeload.github.com/CuriousCorrelation/tauri-plugin-appload/tar.gz/1c2e8b19db7f1b6af6d00abb907f15cdc2017298':
-    resolution: {tarball: https://codeload.github.com/CuriousCorrelation/tauri-plugin-appload/tar.gz/1c2e8b19db7f1b6af6d00abb907f15cdc2017298}
+  '@CuriousCorrelation/plugin-appload@https://codeload.github.com/CuriousCorrelation/tauri-plugin-appload/tar.gz/60adb82d0cc886004307057194cf680373e14e02':
+    resolution: {tarball: https://codeload.github.com/CuriousCorrelation/tauri-plugin-appload/tar.gz/60adb82d0cc886004307057194cf680373e14e02}
     version: 0.1.0
 
-  '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/fee58601fb4b0c129b5a9d87aaa0f9f87c26cd09':
-    resolution: {tarball: https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/fee58601fb4b0c129b5a9d87aaa0f9f87c26cd09}
+  '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/68d6b2532c900b4be24a038c49eec4794e990a3d':
+    resolution: {tarball: https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/68d6b2532c900b4be24a038c49eec4794e990a3d}
     version: 0.1.0
 
   '@alloc/quick-lru@5.2.0':
@@ -5445,8 +5454,8 @@ packages:
   '@types/passport-microsoft@1.0.3':
     resolution: {integrity: sha512-Mqm/iTWEhnlS7RcgVlQMyMcXoqt51NbHtXZFAqcjSCZj4iUBu1MTlpw65X3xZ974K2WrlLQhOm3UMmLoUkMaMA==}
 
-  '@types/passport-oauth2@1.4.15':
-    resolution: {integrity: sha512-9cUTP/HStNSZmhxXGuRrBJfEWzIEJRub2eyJu3CvkA+8HAMc9W3aKdFhVq+Qz1hi42qn+GvSAnz3zwacDSYWpw==}
+  '@types/passport-oauth2@1.4.17':
+    resolution: {integrity: sha512-ODiAHvso6JcWJ6ZkHHroVp05EHGhqQN533PtFNBkg8Fy5mERDqsr030AX81M0D69ZcaMvhF92SRckEk2B0HYYg==}
 
   '@types/passport-strategy@0.2.38':
     resolution: {integrity: sha512-GC6eMqqojOooq993Tmnmp7AUTbbQSgilyvpCYQjT+H6JfG/g6RGc7nXEniZlp0zyKJ0WUdOiZWLBZft9Yug1uA==}
@@ -6450,6 +6459,9 @@ packages:
 
   axios@1.7.7:
     resolution: {integrity: sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==}
+
+  axios@1.9.0:
+    resolution: {integrity: sha512-re4CqKTJaURpzbLHtIi6XpDv20/CnpXOtjRY5/CU32L8gU8ek9UIivcfvSWvmKEngmVbrUtPpdDwWDWL7DNHvg==}
 
   babel-jest@29.7.0:
     resolution: {integrity: sha512-BrvGY3xZSwEcCzKvKsCi2GgHqDqsYkOP4/by5xCgIwGXQxIEh+8ew3gmrE1y7XRR6LHZIj6yLYnUi/mm2KXKBg==}
@@ -13216,11 +13228,11 @@ snapshots:
     optionalDependencies:
       graphql: 16.9.0
 
-  '@CuriousCorrelation/plugin-appload@https://codeload.github.com/CuriousCorrelation/tauri-plugin-appload/tar.gz/1c2e8b19db7f1b6af6d00abb907f15cdc2017298':
+  '@CuriousCorrelation/plugin-appload@https://codeload.github.com/CuriousCorrelation/tauri-plugin-appload/tar.gz/60adb82d0cc886004307057194cf680373e14e02':
     dependencies:
       '@tauri-apps/api': 2.1.1
 
-  '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/fee58601fb4b0c129b5a9d87aaa0f9f87c26cd09':
+  '@CuriousCorrelation/plugin-relay@https://codeload.github.com/CuriousCorrelation/tauri-plugin-relay/tar.gz/68d6b2532c900b4be24a038c49eec4794e990a3d':
     dependencies:
       '@tauri-apps/api': 2.1.1
 
@@ -17710,13 +17722,13 @@ snapshots:
     dependencies:
       '@types/express': 5.0.0
       '@types/passport': 1.0.16
-      '@types/passport-oauth2': 1.4.15
+      '@types/passport-oauth2': 1.4.17
 
   '@types/passport-google-oauth20@2.0.16':
     dependencies:
       '@types/express': 5.0.0
       '@types/passport': 1.0.16
-      '@types/passport-oauth2': 1.4.15
+      '@types/passport-oauth2': 1.4.17
 
   '@types/passport-jwt@4.0.1':
     dependencies:
@@ -17725,9 +17737,9 @@ snapshots:
 
   '@types/passport-microsoft@1.0.3':
     dependencies:
-      '@types/passport-oauth2': 1.4.15
+      '@types/passport-oauth2': 1.4.17
 
-  '@types/passport-oauth2@1.4.15':
+  '@types/passport-oauth2@1.4.17':
     dependencies:
       '@types/express': 5.0.0
       '@types/oauth': 0.9.4
@@ -19320,6 +19332,14 @@ snapshots:
     dependencies:
       follow-redirects: 1.15.6
       form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
+
+  axios@1.9.0:
+    dependencies:
+      follow-redirects: 1.15.6
+      form-data: 4.0.1
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
@@ -24917,7 +24937,7 @@ snapshots:
 
   posthog-node@4.2.0:
     dependencies:
-      axios: 1.7.7
+      axios: 1.9.0
       rusha: 0.8.14
     transitivePeerDependencies:
       - debug
@@ -25942,7 +25962,7 @@ snapshots:
       cookiejar: 2.1.4
       debug: 4.3.7
       fast-safe-stringify: 2.1.1
-      form-data: 4.0.0
+      form-data: 4.0.1
       formidable: 3.5.1
       methods: 1.1.2
       mime: 2.6.0
