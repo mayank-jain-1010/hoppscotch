@@ -361,8 +361,8 @@ describe('renameTeam', () => {
     ).resolves.toEqualLeft(TEAM_INVALID_ID);
   });
 
-  test('rejects for new team name length < 6 with TEAM_NAME_INVALID', () => {
-    const newTeamName = 'smol';
+  test('rejects for new team name empty with TEAM_NAME_INVALID', () => {
+    const newTeamName = '';
 
     // Prisma doesn't care about the team name length, so it will resolve
     mockPrisma.team.update.mockResolvedValue({
@@ -668,8 +668,8 @@ describe('createTeam', () => {
     ).resolves.toEqualRight(expect.objectContaining(team));
   });
 
-  test('rejects for team name length < 6 with TEAM_NAME_INVALID', () => {
-    const newName = 'smol';
+  test('rejects for team name empty with TEAM_NAME_INVALID', () => {
+    const newName = '';
 
     // Prisma doesn't care
     mockPrisma.team.create.mockResolvedValue({
@@ -910,7 +910,7 @@ describe('deleteUserFromAllTeams', () => {
 
     const result = teamService.deleteUserFromAllTeams(dbTeamMember.userUid)();
 
-    await expect(result).rejects.toThrowError(TEAM_ONLY_ONE_OWNER);
+    await expect(result).rejects.toThrow(TEAM_ONLY_ONE_OWNER);
     expect(mockPrisma.teamMember.findMany).toHaveBeenCalledWith({
       where: {
         userUid: dbTeamMember.userUid,
@@ -932,7 +932,7 @@ describe('deleteUserFromAllTeams', () => {
 
     const result = teamService.deleteUserFromAllTeams(dbTeamMember.userUid);
 
-    await expect(result).rejects.toThrowError(TEAM_INVALID_ID_OR_USER);
+    await expect(result).rejects.toThrow(TEAM_INVALID_ID_OR_USER);
     expect(mockPrisma.teamMember.findMany).toHaveBeenCalledWith({
       where: {
         userUid: dbTeamMember.userUid,

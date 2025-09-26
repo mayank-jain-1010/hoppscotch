@@ -19,7 +19,8 @@ export const replaceTemplateStringsInObjectValues = <
       ? restTabsService.currentActiveTab.value.document.request.requestVariables.map(
           ({ key, value }) => ({
             key,
-            value,
+            initialValue: value,
+            currentValue: value,
             secret: false,
           })
         )
@@ -54,4 +55,8 @@ export const replaceTemplateStringsInObjectValues = <
   }
 
   return newObj as T
+}
+
+export const replaceTemplateString = (str: string): string => {
+  return replaceTemplateStringsInObjectValues({ value: str }).value
 }

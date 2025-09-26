@@ -62,19 +62,25 @@ async function logout() {
 
 async function signInUserWithGithubFB() {
   await Io.openExternalLink({
-    url: `${import.meta.env.VITE_BACKEND_API_URL}/auth/github?redirect_uri=desktop`,
+    url: `${
+      import.meta.env.VITE_BACKEND_API_URL
+    }/auth/github?redirect_uri=desktop`,
   })
 }
 
 async function signInUserWithGoogleFB() {
   await Io.openExternalLink({
-    url: `${import.meta.env.VITE_BACKEND_API_URL}/auth/google?redirect_uri=desktop`,
+    url: `${
+      import.meta.env.VITE_BACKEND_API_URL
+    }/auth/google?redirect_uri=desktop`,
   })
 }
 
 async function signInUserWithMicrosoftFB() {
   await Io.openExternalLink({
-    url: `${import.meta.env.VITE_BACKEND_API_URL}/auth/microsoft?redirect_uri=desktop`,
+    url: `${
+      import.meta.env.VITE_BACKEND_API_URL
+    }/auth/microsoft?redirect_uri=desktop`,
   })
 }
 
@@ -519,5 +525,31 @@ export const def: AuthPlatformDef = {
     authEvents$.next({
       event: "logout",
     })
+  },
+
+  /**
+   * Verifies if the current user's authentication tokens are valid
+   * @returns True if tokens are valid, false otherwise
+   */
+  async verifyAuthTokens() {
+    const BACKEND_API_URL = import.meta.env.VITE_BACKEND_API_URL
+
+    const { response } = interceptorService.execute({
+      id: Date.now(),
+      url: `${BACKEND_API_URL}/auth/verify-token`,
+      method: "GET",
+      version: "HTTP/1.1",
+      headers: {
+        "Content-Type": "application/json",
+        ...this.getBackendHeaders(),
+      },
+    })
+
+    const res = await response
+    if (E.isLeft(res)) {
+      return false
+    }
+
+    return res.right.isValid
   },
 }
